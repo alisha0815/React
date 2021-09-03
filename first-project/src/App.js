@@ -1,24 +1,32 @@
-import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  let group1 = ["stefano", "laura", "anotonio"];
+  let group2 = [{ name: "jack" }, { name: "mathias" }, { name: "jenny" }];
+
+  let renderNames = (arr) =>
+    arr.map((ele, idx) => {
+      return ele != "laura" ? <p key={idx}>Hello {ele}</p> : null;
+    });
+
+  let renderNamesFromObj = (arr) =>
+    arr.map((ele, idx) => {
+      return <p key={idx}>Hello {ele.name}</p>;
+    });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>React App</h1>
       </header>
+      <h1 className="pink">Welcome group #1</h1>
+      {renderNames(group1)}
+      <h1 className="pink">Welcome group #2</h1>
+      {renderNamesFromObj(group2)}
+      <footer>
+        <h1>Alisha 👩‍💻</h1>
+      </footer>
     </div>
   );
 }
