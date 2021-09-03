@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   let renderNames = (arr) =>
     arr.map((ele, idx) => {
-      return ele != "laura" ? <p key={idx}>Hello {ele}</p> : null;
+      return ele !== "laura" ? <p key={idx}>Hello {ele}</p> : null;
     });
 
   let renderNamesFromObj = (arr) =>
