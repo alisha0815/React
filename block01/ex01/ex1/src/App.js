@@ -2,24 +2,21 @@
 import "./App.css";
 
 function App() {
+  let categories = ["t-shirts", "hats", "shorts", "shirts", "pants", "shoes"];
+
+  let renderNames = (arr) =>
+    arr.map((ele, index) => {
+      return <p key={index}> {ele}</p>;
+    });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{renderNames(categories)}</h1>
     </div>
   );
 }
 
 export default App;
+
+// ## Exercise 1
+
+// Create a brand new React application with 'React create App'. This app needs to display a list of product categories from an array. The categories are 't-shirts', 'hats', 'shorts', 'shirts', 'pants', 'shoes'. In order to display them you will need to use Array.map
