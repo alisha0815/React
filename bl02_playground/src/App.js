@@ -35,7 +35,7 @@ function App() {
   let year = 2020;
   const renderProducts = (arr) => {
     return arr.map((ele, i) => {
-      return (<SingleProduct product={ele} key={i} />)();
+      return <SingleProduct product={ele} key={i} />;
     });
   };
 
