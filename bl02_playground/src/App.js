@@ -1,8 +1,10 @@
 import React from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import SingleProduct from "./components/SingleProduct";
+import List from "./components/List";
+
 function App() {
+  let year = 2021;
   const products = [
     {
       product: "flash t-shirt",
@@ -32,18 +34,14 @@ function App() {
       onSale: false,
     },
   ];
-  let year = 2020;
-  const renderProducts = (arr) => {
-    return arr.map((ele, i) => {
-      return <SingleProduct product={ele} key={i} />;
-    });
-  };
 
   return (
     <div className="App">
       <Header />
-      {renderProducts(products)}
-      <Footer currentYear={year} />
+
+      <List products={products} />
+
+      <Footer currentYear={year} authorName={"BCS"} />
     </div>
   );
 }
