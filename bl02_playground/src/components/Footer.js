@@ -1,21 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Footer = (props) => {
-  console.log("props in the footer", props);
-  let { currentYear, authorName } = props;
+class Footer extends React.Component {
+  render() {
+    let { currentYear, authorName } = this.props;
+    return (
+      <footer>
+        <p>I am footer</p>
+        <p>
+          copyright {currentYear} created by {authorName}
+        </p>
+      </footer>
+    );
+  }
+}
 
-  return (
-    <footer>
-      <p>I am footer</p>
-      <p>
-        copyright {currentYear} created by {authorName}
-      </p>
-    </footer>
-  );
-};
-
-Footer.prototype = {
+Footer.protoType = {
   currentYear: PropTypes.number.isRequired,
 };
 
