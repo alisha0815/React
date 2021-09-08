@@ -4,8 +4,20 @@ import LastName from "./components/LastName";
 
 class App extends React.Component {
   render() {
-    const firstNames = ["Greve", "Kim", "Solheim", "Sohn"];
-    return;
+    const lastNames = ["Greve", "Kim", "Solheim", "Sohn"];
+    const firstNames = ["Mathias", "Yuri", "Henrik", "Alisha"];
+
+    return (
+      <div>
+        <h1>
+          Welcome!
+          <FirstName firstNames={firstNames} />
+        </h1>
+        <h1>
+          <LastName lastNames={lastNames} />
+        </h1>
+      </div>
+    );
   }
 }
 
