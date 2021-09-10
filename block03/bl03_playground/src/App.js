@@ -12,6 +12,7 @@ class App extends React.Component {
 
   buttonClicked = () => {
     console.log("Button clicked! 😎");
+    this.setState({ city: "London" });
   };
 
   render() {
@@ -23,6 +24,7 @@ class App extends React.Component {
         <h1>
           {this.state.name} lives in {this.state.city}
         </h1>
+        <h2> Year is {year}</h2>
         <button onClick={this.buttonClicked}>Click me! </button>
         {/* <List products={products} /> */}
 
