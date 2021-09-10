@@ -29,6 +29,10 @@ class App extends React.Component {
     // console.log("updated counter in state==>", this.state.counter);
   };
 
+  submitInput = () => {
+    alert(this.state.userInput);
+  };
+
   handleChange = (event) => {
     let data = event.target.value;
     data.length > 6 ? console.log("good enough!") : console.log("keep typing");
@@ -39,13 +43,22 @@ class App extends React.Component {
     // console.log("form the input==>", event.target);
   };
 
+  handleForm = (event) => {
+    event.preventDefault();
+    alert(this.state.userInput);
+  };
   render() {
     let year = 2021;
 
     return (
       <div className="App">
         <Header />
+        <form onSubmit={this.handleForm}>
+          <input onChange={this.handleChange} />
+          <button>Send form</button>
+        </form>
         <input onChange={this.handleChange} />
+        <button onClick={this.submitInput}>Submit</button>
         <p>you typed : {this.state.userInput}</p>
         <h1 onClick={this.count}>You clicked me {this.state.counter} times</h1>
         <h1>
