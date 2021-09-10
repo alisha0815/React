@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import List from "./components/List";
 import products from "./static/products";
+import Inputs from "./components/Inputs";
 
 class App extends React.Component {
   state = {
@@ -61,23 +62,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <p>Firstname</p>
-        {/* <form onSubmit={this.handleForm}> */}
-        <input
-          onChange={this.handleChange}
-          name="fname"
-          value={this.state.fname}
-        />
-        <p>Lastname</p>
-        {/* <button>Send form</button> */}
-        {/* </form> */}
-        <input
-          onChange={this.handleChange}
-          name="lname"
-          value={this.state.lname}
+        <Inputs
+          change={this.handleChange}
+          submit={this.submitInput}
+          fn={this.state.fname}
+          ln={this.state.lname}
         />
 
-        <button onClick={this.submitInput}>Submit</button>
         <h1>Your full name is {this.state.fullName}</h1>
         <p>you typed : {this.state.userInput}</p>
         <h1 onClick={this.count}>You clicked me {this.state.counter} times</h1>
