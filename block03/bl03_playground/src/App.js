@@ -9,10 +9,12 @@ class App extends React.Component {
     name: "Alisha",
     city: "Oslo",
   };
-
+  year = "3000";
   buttonClicked = () => {
     console.log("Button clicked! 😎");
-    this.setState({ city: "London" });
+    this.setState({ city: this.state.city });
+    this.year = 2020;
+    console.log(this.year);
   };
 
   render() {
@@ -24,7 +26,7 @@ class App extends React.Component {
         <h1>
           {this.state.name} lives in {this.state.city}
         </h1>
-        <h2> Year is {year}</h2>
+        <h2> Year is {this.year}</h2>
         <button onClick={this.buttonClicked}>Click me! </button>
         {/* <List products={products} /> */}
 
