@@ -2,16 +2,15 @@ import React from "react";
 
 class App extends React.Component {
   state = {
-    userInput: "",
+    userInput: "No data provided",
   };
 
   handleChange = (event) => {
     let data = event.target.value;
     console.log(data);
     data.length === 0
-      ? console.log("No data provided")
-      : console.log("Good enough!");
-    this.setState({ userInput: data });
+      ? this.setState({ userInput: "No data provided" })
+      : this.setState({ userInput: data });
   };
   render() {
     return (
