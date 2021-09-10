@@ -6,10 +6,13 @@ import products from "./static/products";
 
 class App extends React.Component {
   state = {
+    fname: "",
+    lname: "",
     name: "Alisha",
     city: "Oslo",
     counter: 0,
     userInput: "",
+    fullName: "",
   };
   year = "3000";
 
@@ -30,13 +33,18 @@ class App extends React.Component {
   };
 
   submitInput = () => {
-    alert(this.state.userInput);
+    let { fname, lname } = this.state;
+    let full = `${fname} ${lname}`;
+    this.setState({ fullName: full, lname: "", fname: "" });
+    alert(this.state.fname + " " + this.state.lname);
   };
 
   handleChange = (event) => {
     let data = event.target.value;
     data.length > 6 ? console.log("good enough!") : console.log("keep typing");
-    this.setState({ userInput: data });
+    this.setState({ [event.target.name]: data }, () => {
+      console.log("state==>", this.state);
+    });
     // console.log("from the input ==>", data.length);
     // console.log("form the input==>", data);
     // console.log("form the input==>", event);
@@ -53,12 +61,24 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <form onSubmit={this.handleForm}>
-          <input onChange={this.handleChange} />
-          <button>Send form</button>
-        </form>
-        <input onChange={this.handleChange} />
+        <p>Firstname</p>
+        {/* <form onSubmit={this.handleForm}> */}
+        <input
+          onChange={this.handleChange}
+          name="fname"
+          value={this.state.fname}
+        />
+        <p>Lastname</p>
+        {/* <button>Send form</button> */}
+        {/* </form> */}
+        <input
+          onChange={this.handleChange}
+          name="lname"
+          value={this.state.lname}
+        />
+
         <button onClick={this.submitInput}>Submit</button>
+        <h1>Your full name is {this.state.fullName}</h1>
         <p>you typed : {this.state.userInput}</p>
         <h1 onClick={this.count}>You clicked me {this.state.counter} times</h1>
         <h1>
