@@ -1,4 +1,7 @@
 import React from "react";
+import InputEmail from "./components/InputEmail";
+import InputPassword from "./components/InputPassword";
+import SubmitButton from "./components/SubmitButton";
 
 class App extends React.Component {
   state = {
@@ -7,7 +10,6 @@ class App extends React.Component {
   };
 
   handleInput = (event) => {
-    event.preventDefault();
     let name = event.target.name;
     let value = event.target.value;
     this.setState({ [name]: value });
@@ -22,12 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div onChange={this.handleInput}>
-          <h4>Email</h4>
-          <input name="email" value={this.state.email} />
-          <h4>Password</h4>
-          <input name="password" value={this.state.password} />
-        </div>
+        <InputEmail handleInput={this.handleInput} />
         <h4>
           <button onClick={this.getDataOnClick}>Click!</button>
         </h4>
