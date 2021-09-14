@@ -26,7 +26,10 @@ class App extends React.Component {
       <div>
         <Email getEmail={this.handleInput} />
         <Password getPassword={this.handleInput} />
-        <Submit submit={this.getDataOnClick} />
+        <Submit
+          submit={this.getDataOnClick}
+          data={{ email: this.state.email, password: this.state.password }}
+        />
       </div>
     );
   }
