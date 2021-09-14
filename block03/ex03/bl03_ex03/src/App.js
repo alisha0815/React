@@ -1,7 +1,7 @@
 import React from "react";
-import InputEmail from "./components/InputEmail";
-import InputPassword from "./components/InputPassword";
-import SubmitButton from "./components/SubmitButton";
+import Email from "./components/Email";
+import Password from "./components/Password";
+import Submit from "./components/Submit";
 
 class App extends React.Component {
   state = {
@@ -24,12 +24,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <InputEmail handleInput={this.handleInput} />
-        <h4>
-          <button onClick={this.getDataOnClick}>Click!</button>
-        </h4>
-        <h2>Your email is {this.state.email}</h2>
-        <h2>Your password is {this.state.password}</h2>
+        <Email getEmail={this.handleInput} />
+        <Password getPassword={this.handleInput} />
+        <Submit submit={this.getDataOnClick} />
       </div>
     );
   }
