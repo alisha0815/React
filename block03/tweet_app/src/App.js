@@ -1,27 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import TweetList from "./components/TweetList";
 import CreateTweet from "./components/CreateTweet";
 
 const App = () => {
-  const name = "Alisha";
-  const message = "Jeg heter Alisha";
+  const [name, setName] = useState("Dev Ed");
 
-  const sayHelloHandler = (user) => {
-    alert(`Hello there ${user}`);
-    console.log(user);
-  };
-
-  const inputHandler = (e) => {
-    console.log(e);
+  const sayHelloHandler = (e) => {
+    setName("Mathias");
   };
 
   return (
     <div>
-      <h1>Hello React!</h1>
-      <button onClick={() => sayHelloHandler("Mike")}>Click!!</button>
-      <button onClick={inputHandler}>Try Me</button>
-      <CreateTweet />
-      <TweetList name={name} message={message} />
+      <h1>Hello {name}!</h1>
+      <button onClick={() => sayHelloHandler({ name })}>Click!!</button>
     </div>
   );
 };
