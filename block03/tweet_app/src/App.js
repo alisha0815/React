@@ -3,16 +3,13 @@ import TweetList from "./components/TweetList";
 import CreateTweet from "./components/CreateTweet";
 
 const App = () => {
-  const [name, setName] = useState("Dev Ed");
-
-  const sayHelloHandler = (e) => {
-    setName("Mathias");
-  };
+  const [name, setName] = useState("Alisha");
+  const message = "Hello";
 
   return (
     <div>
-      <h1>Hello {name}!</h1>
-      <button onClick={() => sayHelloHandler({ name })}>Click!!</button>
+      <CreateTweet />
+      <TweetList setName={setName} name={name} message={message} />
     </div>
   );
 };
