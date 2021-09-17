@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MovieContext } from "./MovieContext";
 
-const Nav = ({ numOfMovies }) => {
+const Nav = () => {
+  const [movies, setMovies] = useContext(MovieContext);
   return (
     <div>
       <h3>Alisha</h3>
-      <p>List of Movies: {numOfMovies}</p>
+      <p>List of Movies: {movies.length}</p>
     </div>
   );
 };
