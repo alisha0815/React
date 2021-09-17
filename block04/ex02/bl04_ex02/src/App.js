@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Converter from "./Converter";
 import axios from "axios";
 
 const App = () => {
@@ -22,13 +23,12 @@ const App = () => {
       });
   };
   return (
-    <div>
-      <h1>Convert EUR to USD</h1>
-      <p> EUR</p>
-      <input onChange={handleInput} text={input} />
-      <button onClick={findCurrency}>Search</button>
-      <h2>$ {(input * currency).toFixed(2)}</h2>
-    </div>
+    <Converter
+      currency={currency}
+      input={input}
+      handleInput={handleInput}
+      findCurrency={findCurrency}
+    />
   );
 };
 
