@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import axios from "axios";
 
-function App() {
+const App = () => {
+  const [currency, setCurrency] = useState({});
+  const [input, setInput] = useState("");
+
+  // Event
+  const handleInput = (e) => {
+    console.log(e.target.value);
+    setInput(e.target.value);
+  };
+
+  const findCurrency = () => {
+    axios
+      .get(
+        `https://v6.exchangerate-api.com/v6/076bf3661b25645fde3a8bc0/latest/EUR`
+      )
+      .then((data) => {
+        let rate = data.data.conversion_rates.USD;
+        setCurrency(rate);
+      });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Convert EUR to USD</h1>
+      <p> EUR</p>
+      <input onChange={handleInput} text={input} />
+      <button onClick={findCurrency}>Search</button>
+      <h2>$ {(input * currency).toFixed(2)}</h2>
     </div>
   );
-}
+};
 
 export default App;
