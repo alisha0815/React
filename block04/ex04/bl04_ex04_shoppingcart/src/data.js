@@ -1,4 +1,4 @@
-const data = [
+export const data = [
   {
     id: "1",
     name: "flash t-shirt",
@@ -30,5 +30,3 @@ const data = [
     onSale: false,
   },
 ];
-
-export default data;
