@@ -3,8 +3,8 @@ import Converter from "./Converter";
 import axios from "axios";
 
 const App = () => {
-  const [currency, setCurrency] = useState({});
-  const [input, setInput] = useState("");
+  const [currency, setCurrency] = useState(0);
+  const [input, setInput] = useState(0);
 
   // Event
   const handleInput = (e) => {
@@ -21,6 +21,7 @@ const App = () => {
         let rate = data.data.conversion_rates.USD;
         setCurrency(rate);
       });
+    setInput(0);
   };
   return (
     <Converter
