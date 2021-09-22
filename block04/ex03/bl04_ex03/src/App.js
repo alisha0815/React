@@ -25,8 +25,8 @@ const App = () => {
     console.log(users);
     e.preventDefault();
     users.map((user) => {
-      if (user.email === { email }) {
-        if (user.password === { password }) {
+      if (user.email === email) {
+        if (user.password === password) {
           return alert("You are in");
         }
       } else {
